@@ -11,8 +11,8 @@ You can use go daemon to setup hot reload so you don't need to restart your proj
 
 
 ## Available endpoints
--[x] /signup - takes in email, password, username, firstName, lastName, phone (you can always add more)
--[x] /login - takes in email and password and returns a jwt token and user data
+[x] /signup - takes in email, password, username, firstName, lastName, phone (you can always add more)
+[x] /login - takes in email and password and returns a jwt token and user data
 -[x] /user - fetches all the user's data from the database
 -[x] /forgot-password - sends an otp for user to reset their password (coming soon)
 -[x] /reset-password - enables a user to change their password (coming soon)
