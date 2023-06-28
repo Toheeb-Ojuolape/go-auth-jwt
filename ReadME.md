@@ -5,10 +5,9 @@ You can easily get started with authenticating your users using signup, login an
 ## Setting up Hot Reload in Go
 You can use go daemon to setup hot reload so you don't need to restart your project everytime you push an update:
 
+
 -  1) In your command line, run : go install github.com/joho/godotenv
 -  2) then run compiledaemon --command="./go-gin-auth"  (replace go-gin-auth with the name of your own project)
-
-
 
 ## Available endpoints
 - [x] /signup - takes in email, password, username, firstName, lastName, phone (you can always add more)
