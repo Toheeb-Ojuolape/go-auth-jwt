@@ -62,6 +62,7 @@ func VerifyToken(c *gin.Context) {
 			"username":  user.Username,
 			"firstName": user.FirstName,
 			"lastName":  user.LastName,
+			"phone":     user.Phone,
 		})
 
 		//Continue
