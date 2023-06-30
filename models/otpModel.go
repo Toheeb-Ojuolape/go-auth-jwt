@@ -10,7 +10,6 @@ type Otp struct {
 	gorm.Model
 	Email     string
 	SessionId string
-	Otp string
+	Otp       string
 	ExpiredAt time.Time
-
 }
