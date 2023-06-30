@@ -1,5 +1,5 @@
 ## Go-authentication using gin with JWT, ENV and PostgreSQL set up
-You can easily get started with authenticating your users using signup, login and fetch user data using this Github project. Just fork it to get started. 
+You can easily get started with authenticating your users using signup, login, forgot password, email,verify otp, and reset password and fetch user data using this Github project. Just fork it to get started. 
 
 
 ## Setting up Hot Reload in Go
