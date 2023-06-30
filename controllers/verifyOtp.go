@@ -29,7 +29,7 @@ func VerifyOtp(c *gin.Context) {
 	session := initializers.DB.Where("session_id = ?", body.SessionId).First(&otp)
 
 	if session.Error != nil {
-		c.JSON(http.StatusOK, gin.H{
+		c.JSON(http.StatusBadRequest, gin.H{
 			"message": "Invalid OTP",
 		})
 		return
@@ -37,7 +37,7 @@ func VerifyOtp(c *gin.Context) {
 
 	// check if the otp session has expired
 	if time.Now().Unix() > otp.ExpiredAt.Unix() {
-		c.JSON(http.StatusOK, gin.H{
+		c.JSON(http.StatusBadRequest, gin.H{
 			"message": "OTP session has expired",
 		})
 		return
