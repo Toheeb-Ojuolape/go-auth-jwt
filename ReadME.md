@@ -15,7 +15,7 @@ You can use go daemon to setup hot reload so you don't need to restart your proj
 - [x] /user - fetches all the user's data from the database
 - [x] /forgot-password - sends an otp for user to reset their password
 - [x] /verify-otp - verify otp sent to email
-- [ ] /reset-password - enables a user to change their password (coming soon)
+- [x] /reset-password - enables a user to change their password (coming soon)
 - [ ] /google-auth - enables a user to login with google (coming soon)
 
 
