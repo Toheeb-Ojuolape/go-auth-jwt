@@ -39,7 +39,7 @@ func Login(c *gin.Context) {
 
 	if user.ID == 0 {
 		c.JSON(http.StatusBadRequest, gin.H{
-			"error": "This user does not exist in our database",
+			"message": "This user does not exist in our database",
 		})
 
 		return

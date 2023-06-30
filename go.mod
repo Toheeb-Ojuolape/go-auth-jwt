@@ -11,7 +11,7 @@ require (
 	gorm.io/gorm v1.25.1
 )
 
-
+require github.com/mailjet/mailjet-apiv3-go v0.0.0-20201009050126-c24bc15a9394 // indirect
 
 require (
 	github.com/bytedance/sonic v1.9.2 // indirect

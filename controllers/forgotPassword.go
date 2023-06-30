@@ -28,14 +28,14 @@ func ForgotPassword(c *gin.Context) {
 	//create a session record of the otp with its session id in postgreSQL
 	//set expiry to 10 minutes
 	expiry := time.Now().Add(10 * time.Minute)
-
+	sessionId := helpers.GenerateSessionId()
+	otpNumber := helpers.GenerateOtp()
 	//Create the otp
-	otp := models.Otp{Email: body.Email, SessionId: fmt.Sprintf("sessionId%v", helpers.GenerateOtp()), Otp: fmt.Sprint(helpers.GenerateOtp()), ExpiredAt: expiry}
+	otp := models.Otp{Email: body.Email, SessionId: fmt.Sprint(sessionId), Otp: fmt.Sprint(otpNumber), ExpiredAt: expiry}
 
 	err := initializers.DB.Create(&otp)
 
-	fmt.Println(err)
-	if err != nil {
+	if err.Error != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"message": "Otp not sent successfully",
 		})
@@ -44,8 +44,9 @@ func ForgotPassword(c *gin.Context) {
 	} else {
 		services.SendMail(
 			"Reset your password",
-			fmt.Sprintf("<h1>Hey %v </h1> <p>Sorry you forgot your password. Kindly use this otp to reset your password: <strong>%v</strong></p>", body.Email, helpers.GenerateOtp()),
+			fmt.Sprintf("<h1>Hey %v </h1> <p>Sorry you forgot your password. Kindly use this otp to reset your password: <strong>%v</strong></p>", body.Email, otpNumber),
 			string(body.Email),
+			fmt.Sprint(sessionId),
 			c,
 		)
 	}

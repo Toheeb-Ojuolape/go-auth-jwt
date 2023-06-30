@@ -24,7 +24,7 @@ func Signup(c *gin.Context) {
 	// this binds the req to the body struct
 	if c.Bind(&body) != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
-			"error": "Failed to read body",
+			"message": "Invalid parameters passed",
 		})
 
 		return
@@ -35,7 +35,7 @@ func Signup(c *gin.Context) {
 
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
-			"error": "Failed to hash password",
+			"message": "Failed to hash password",
 		})
 	}
 
@@ -52,6 +52,8 @@ func Signup(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{})
+	c.JSON(http.StatusOK, gin.H{
+		"message": "User account created successfully",
+	})
 
 }
