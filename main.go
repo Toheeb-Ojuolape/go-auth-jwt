@@ -25,5 +25,6 @@ func main() {
 	r.POST("/login", controllers.Login)
 	r.GET("/user", middleware.VerifyToken, controllers.User)
 	r.POST("/forgot-password", controllers.ForgotPassword)
+	r.POST("/verify-otp", controllers.VerifyOtp)
 	r.Run() // listen and serve on 0.0.0.0:3000
 }
