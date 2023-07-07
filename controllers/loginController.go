@@ -27,7 +27,7 @@ func Login(c *gin.Context) {
 	// this binds the req to the body struct
 	if c.Bind(&body) != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
-			"error": "Failed to read body",
+			"message": "Failed to read body",
 		})
 
 		return
@@ -50,7 +50,7 @@ func Login(c *gin.Context) {
 
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
-			"error": "The password you entered is wrong",
+			"message": "The password you entered is wrong",
 		})
 
 		return
@@ -65,10 +65,9 @@ func Login(c *gin.Context) {
 
 	// Sign and get the complete encoded token as a string using the secret
 	tokenString, err := token.SignedString([]byte(os.Getenv("JWT_SECRET")))
-
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
-			"error": "Failed to authenticate user",
+			"message": "Failed to authenticate user",
 		})
 
 		return

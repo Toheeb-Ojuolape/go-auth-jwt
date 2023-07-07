@@ -14,7 +14,7 @@ func FetchTodos(c *gin.Context) {
 	result := initializers.DB.Find(&todos)
 	if result.Error != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
-			"error": result.Error.Error(),
+			"message": result.Error.Error(),
 		})
 		return
 	}
