@@ -27,5 +27,7 @@ func main() {
 	r.POST("/forgot-password", controllers.ForgotPassword)
 	r.POST("/verify-otp", controllers.VerifyOtp)
 	r.POST("/reset-password", controllers.ResetPassword)
+	r.GET("/users", controllers.FetchUsers)
+	r.GET("/todos", controllers.FetchTodos)
 	r.Run() // listen and serve on 0.0.0.0:3000
 }
